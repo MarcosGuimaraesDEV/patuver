@@ -14,26 +14,26 @@ $senha = '1554';
 $database = 'login';
 $host = 'localhost';
 
-// a quele codigo padrão fifa para se conectar ao banco de dados MySQL ! HEHEHEH 
+// codigo para se Conectar ao banco de dados MySQL
 $conn = new mysqli($host, $usuario, $senha, $database);
 
-// Verificar conexão
+// aqui faz uma verificar de conexão com o banco HEHEHHE 
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-// Aqui nessa linha o codigo vai Verificar se o ID do arquivo foi enviado HEHEHE 
+// nessa parte faz uma verificação do ID do arquivo foi enviado para o banco e servidor
 if (isset($_POST['fileId']) && isset($_POST['fileToDelete'])) {
     $fileId = $_POST['fileId'];
     $fileToDelete = $_POST['fileToDelete'];
 
-    // Excluir o arquivo do banco de dados quando eu mandar HEHEHEH 
+    // codigo para excluir o arquivo enviado do banco de dados HEHEHEH 
     $sql = "DELETE FROM uploads WHERE id = $fileId";
     if ($conn->query($sql) === TRUE) {
-        // Excluir o arquivo da pasta de uploads ( não tem lixeira viu apagou já era HEHEHEH )
+        // Aqui faz a excluisão do arquivo dentro dessa pasta uploads, essa crianda dentro da pasta do Patuver HEHEH 
         $filePath = 'uploads/' . $fileToDelete;
         if (file_exists($filePath)) {
-            unlink($filePath); // Exclui o arquivo (fazendo o limpa HEHEH )
+            unlink($filePath); // deleta o arquivo
             echo "Arquivo excluído com sucesso.";
         } else {
             echo "Arquivo não encontrado na pasta de uploads.";
@@ -45,6 +45,6 @@ if (isset($_POST['fileId']) && isset($_POST['fileToDelete'])) {
     echo "Erro ao receber o ID do arquivo.";
 }
 
-// Fechar a conexão com o banco de dados ao final HEHEHE
+// aqui o codigo Fecha a conexão com o banco de dados
 $conn->close();
 ?>

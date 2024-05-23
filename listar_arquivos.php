@@ -4,15 +4,15 @@ $senha = '1554';
 $database = 'login';
 $host = 'localhost';
 
-// codigo padrão para se conectar ao banco de dados MySQL ( O pai e fera ! )
+// Configurações de conexão com o banco de dados
 $conn = new mysqli($host, $usuario, $senha, $database);
 
-// Verificar conexão para dar certo nessa bagaça HEHEHE 
+// aqui faz a conexão com o banco de dados! HEHEHE 
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-// Selecionar todos os arquivos do banco de dados ( Mandei foi selecionar tudo Velhor :) )
+// aqui o codigo pega todos os arquivos do banco de dados HEHEHEH 
 $sql = "SELECT id, filename, description FROM uploads";
 $result = $conn->query($sql);
 
@@ -27,6 +27,6 @@ if ($result->num_rows > 0) {
     echo "Nenhum arquivo encontrado.";
 }
 
-// Fechar a conexão com o banco de dados para finalizar e ficar top HEHEH 
+// aqui fechar a conexão com o banco de dados
 $conn->close();
 ?>

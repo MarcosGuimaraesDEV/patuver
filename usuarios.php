@@ -1,30 +1,30 @@
 <?php
-// Configurações para eu conectar com o banco de dados
+// Configurações de conexão com o banco de dados
 $usuario = 'root';
 $senha = '1554';
 $database = 'login';
 $host = 'localhost';
 
-// Conexão feita com o banco de dados HEHEH 
+// Conexão com o banco de dados
 $conn = new mysqli($host, $usuario, $senha, $database);
 
-// o codigo procura algum  erro na conexão HEHEH E
+// Verifica se houve algum erro na conexão
 if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);
 }
 
-// Query vai fazer a seleção todos os usuários HEHEH 
+//nessa query faz a seleção todos os usuários buchas HEHEH 
 $sql = "SELECT * FROM usuarios";
 
-// Executa a query
+
 $result = $conn->query($sql);
 
-// Array para guardar os usuários HEHEH
+// nessa array para armazenar todos os usuários ( tudo bucha ) 
 $usuarios = array();
 
-// aqui vai procura se teve resultados
+// aqui faz uma verificação para ver se há resultados
 if ($result->num_rows > 0) {
-    // um Loop através dos resultados e adiciona os usuários ao array  HEHEH 
+    // Loop através dos resultados e adiciona os usuários ao array
     while ($row = $result->fetch_assoc()) {
         $usuario = array(
             'nome' => $row['nome'],
@@ -34,10 +34,10 @@ if ($result->num_rows > 0) {
     }
 }
 
-// Nesa linha aqui jovem vai echa a conexão com o banco de dados HEHEH 
+// aqui fecha a conexão com o banco de dados
 $conn->close();
 
-// traz todos os usuários em formato JSON
+// aqui traz todos os usuários em formato JSON ( os buchas)
 header('Content-Type: application/json');
 echo json_encode($usuarios);
 ?>

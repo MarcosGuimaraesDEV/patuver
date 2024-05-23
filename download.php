@@ -1,18 +1,18 @@
 <?php
-// Aqui vai fazer a verificação se o parâmetro 'file' está presente na URL HEHEH 
+// Verificar se o parâmetro 'file' está presente na URL
 if(isset($_GET['file'])) {
-    // Obter o nome do arquivo a ser baixado ( Vai procura na pasta )
+    // Pega o nome do arquivo para baixado   HEHEHHE 
     $filename = $_GET['file'];
     
-    // Diretório onde os arquivos estão armazenados ( Achei melhor guardar eles aqui, na raiz da pagina! )
+    // todos os arquivos enviados na guia painel Uploads vai ficar salvo nessa pasta HEHHE 
     $directory = 'uploads/';
     
-    // Caminho completo do arquivo 
+    // Equi fica registrado o caminho do arquivo HEHEHEH 
     $filepath = $directory . $filename;
     
-    // Verificar se o arquivo existe ( tu ta ai doido HEHEHE )
+    // nesse codigo faz uma verificação para saber se a bucha o arquivo existe kkkkkkkkkkk 
     if(file_exists($filepath)) {
-        // Definir cabeçalhos para forçar o download do arquivo ( Para baixar certinho! )
+        // a definição do cabeçalho para forçar o download do arquivo ta liga obriga a baixar HIHIHIHIH 
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename="' . basename($filepath) . '"');
@@ -21,7 +21,7 @@ if(isset($_GET['file'])) {
         header('Pragma: public');
         header('Content-Length: ' . filesize($filepath));
         
-        // Ler o arquivo e enviá-lo para o navegador ( no padrão fifa! )
+        // Nessa parte do codigo ele faz uma analise do arquivos para enviá-lo para o navegador 
         readfile($filepath);
         exit;
     } else {
